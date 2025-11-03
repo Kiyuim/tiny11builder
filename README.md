@@ -19,7 +19,6 @@ This script generates a significantly reduced Windows 11 image. However, **it's 
 
 ## ⚠️ Script versions:
 - **tiny11maker.ps1** : The regular script, which removes a lot of bloat but keeps the system serviceable. You can add languages, updates, and features post-creation. This is the recommended script for regular use.
-- ⚠️ **tiny11coremaker.ps1** : The core script, which removes even more bloat but also removes the ability to service the image. You cannot add languages, updates, or features post-creation. This is recommended for quick testing or development use.
 
 ## Instructions:
 1. Download Windows 11 from the [Microsoft website](https://www.microsoft.com/software-download/windows11) or [Rufus](https://github.com/pbatard/rufus)
@@ -49,7 +48,6 @@ C:/path/to/your/tiny11/script.ps1 -ISO <letter> -SCRATCH <letter>
   <tbody>
     <tr>
       <th>Tiny11maker</th>
-      <th>Tiny11coremaker</th>
     </tr>
     <tr>
       <td>
@@ -66,7 +64,6 @@ C:/path/to/your/tiny11/script.ps1 -ISO <letter> -SCRATCH <letter>
           <li>PowerAutomate</li>
           <li>ToDo</li>
           <li>Alarms</li>
-          <li>Mail and Calendar</li>
           <li>Feedback Hub</li>
           <li>Maps</li>
           <li>Sound Recorder</li>
@@ -76,16 +73,7 @@ C:/path/to/your/tiny11/script.ps1 -ISO <letter> -SCRATCH <letter>
           <li>Internet Explorer</li>
           <li>Tablet PC Math</li>
           <li>Edge</li>
-          <li>OneDrive</li>
-        </ul>
-      </td>
-      <td>
-        <ul>
-          <li>all from regular tiny +</li>
-          <li>Windows Component Store (WinSxS)</li>
-          <li>Windows Defender (only disabled, can be enabled back if needed)</li>
-          <li>Windows Update (wouldn't work without WinSxS, enabling it would put the system in a state of failure)</li>
-          <li>WinRE</li>
+          <li>Copilot</li>
         </ul>
       </td>
     </tr>
@@ -94,29 +82,9 @@ C:/path/to/your/tiny11/script.ps1 -ISO <letter> -SCRATCH <letter>
 
 Keep in mind that **you cannot add back features in tiny11 core**! <br>
 You will be asked during image creation if you want to enable .net 3.5 support!
-
 ---
 
 ## Known issues:
 - Although Edge is removed, there are some remnants in the Settings, but the app in itself is deleted. 
 - You might have to update Winget before being able to install any apps, using Microsoft Store.
-- Outlook and Dev Home might reappear after some time. This is an ongoing battle, though the latest script update tries to prevent this more aggressively.
 - If you are using this script on arm64, you might see a glimpse of an error while running the script. This is caused by the fact that the arm64 image doesn't have OneDriveSetup.exe included in the System32 folder.
-
----
-
-## Features to be implemented:
-- ~~disabling telemetry~~ (Implemented in the 04-29-24 release!)
-- ~~more ad suppression~~ (Partially implemented in the 09-06-25 release!)
-- improved language and arch detection
-- more flexibility in what to keep and what to delete
-- maybe a GUI???
-
-And that's pretty much it for now!
-## ❤️ Support the Project
-
-If this project has helped you, please consider showing your support! A small donation helps me dedicate more time to projects like this.
-Thank you!
-
-**[Patreon](http://patreon.com/ntdev) | [PayPal](http://paypal.me/ntdev2) | [Ko-fi](http://ko-fi.com/ntdev)**
-Thanks for trying it and let me know how you like it!
